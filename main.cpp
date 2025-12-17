@@ -227,5 +227,5 @@ int main(int argc, char *argv[])
     engine.loadFromModule("qtjenny_consumer", "Main");
 */
 
-    return app.exec();
+    return 0; // app.exec();
 }
