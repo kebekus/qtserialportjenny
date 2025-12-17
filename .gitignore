@@ -2,6 +2,8 @@
 build
 qtjenny_generator
 qtjenny_output
+.qmlls.ini
+android/.gradle
 
 # Prerequisites
 *.d
