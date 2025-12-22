@@ -40,6 +40,7 @@ qt_add_qml_module(appqtjenny_consumer
         backend.cpp
         RESOURCES android/src/de/akaflieg_freiburg/enroute/UsbConnectionReceiver.java
         RESOURCES android/res/xml/device_filter.xml
+        RESOURCES android/src/de/akaflieg_freiburg/enroute/MainActivity.java
 )
 
 set_target_properties(appqtjenny_consumer PROPERTIES

@@ -4,6 +4,7 @@ qtjenny_generator
 qtjenny_output
 .qmlls.ini
 android/.gradle
+.DS_Store
 
 # Prerequisites
 *.d

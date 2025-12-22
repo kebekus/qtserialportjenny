@@ -17,6 +17,8 @@ public:
         int portCount;
     };
 
+    UsbSerialHelper();
+
     static QList<SerialDevice> getAvailableDevices();
 
     // Optional: Get a specific driver by index

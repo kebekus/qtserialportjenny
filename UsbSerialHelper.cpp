@@ -7,6 +7,16 @@
 
 #include "UsbSerialHelper.h"
 
+UsbSerialHelper::UsbSerialHelper()
+{
+    QJniObject::callStaticMethod<void>(
+        "org/qtproject/example/appqtjenny_consumer/MainActivity",
+        "onQtInitialized",
+        "()V"
+        );
+}
+
+
 QList<UsbSerialHelper::SerialDevice> UsbSerialHelper::getAvailableDevices() {
     QList<SerialDevice> devices;
 
@@ -476,6 +486,29 @@ Java_org_qtproject_example_appqtjenny_1consumer_UsbConnectionReceiver_notifyUsbD
     //UsbEventHandler::instance()->onDeviceDetached(QString(deviceName));
 
     env->ReleaseStringUTFChars(jDeviceName, deviceName);
+}
+
+JNIEXPORT void JNICALL
+Java_org_qtproject_example_appqtjenny_1consumer_UsbConnectionReceiver_notifyAppStartedByUsbDevice(
+    JNIEnv *env, jobject obj, jstring jDeviceName,
+    jint vendorId, jint productId, jstring jDriverName)
+{
+    const char *deviceName = env->GetStringUTFChars(jDeviceName, nullptr);
+    const char *driverName = env->GetStringUTFChars(jDriverName, nullptr);
+
+    qDebug() << "App started by USB device:" << deviceName
+             << "VID:" << QString::number(vendorId, 16)
+             << "PID:" << QString::number(productId, 16)
+             << "Driver:" << driverName;
+
+/*
+    // Notify your application logic
+    UsbEventHandler::instance()->onAppStartedByDevice(
+        QString(deviceName), vendorId, productId, QString(driverName)
+        );
+*/
+    env->ReleaseStringUTFChars(jDeviceName, deviceName);
+    env->ReleaseStringUTFChars(jDriverName, driverName);
 }
 
 } // extern "C"
