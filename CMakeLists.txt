@@ -27,6 +27,8 @@ qt_standard_project_setup(REQUIRES 6.8)
 
 qt_add_executable(appqtjenny_consumer
     main.cpp
+    UsbSerialHelper.cpp
+    UsbSerialHelper.h
 )
 
 qt_add_qml_module(appqtjenny_consumer
@@ -36,6 +38,8 @@ qt_add_qml_module(appqtjenny_consumer
     SOURCES
         backend.h
         backend.cpp
+        RESOURCES android/src/de/akaflieg_freiburg/enroute/UsbConnectionReceiver.java
+        RESOURCES android/res/xml/device_filter.xml
 )
 
 set_target_properties(appqtjenny_consumer PROPERTIES
