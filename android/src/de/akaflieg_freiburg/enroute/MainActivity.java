@@ -80,6 +80,5 @@ public class MainActivity extends QtActivity {
         return "Unknown";
     }
 
-    private native void nativeNotifyUsbDevice(String deviceName, int vendorId,
-                                              int productId, String driverName);
+    private native void nativeNotifyUsbDevice(String deviceName, int vendorId, int productId, String driverName);
 }

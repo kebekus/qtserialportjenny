@@ -31,7 +31,6 @@ public class UsbConnectionReceiver extends BroadcastReceiver {
     }
 
     // Native methods implemented in C++
-    private native void notifyUsbDeviceAttached(String deviceName, int vendorId,
-                                                int productId, int deviceClass);
+    private native void notifyUsbDeviceAttached(String deviceName, int vendorId, int productId, int deviceClass);
     private native void notifyUsbDeviceDetached(String deviceName);
 }

@@ -74,7 +74,6 @@ int main(int argc, char *argv[])
             if (readCount >= maxReads) {
                 readTimer->stop();
                 helper.closeDevice();
-                QCoreApplication::quit();
             }
         });
 
